@@ -22,9 +22,7 @@ http://use.mazemap.com/?campusid=1
 ```
 >#####campusid's#####
 >1. NTNU
->2. Statsbygg
 >3. St.Olavs Hospital
->4. OSL
 >5. UiT
 
 
