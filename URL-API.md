@@ -26,17 +26,6 @@ http://use.mazemap.com/?campusid=1
 >5. UiT
 
 
-1. Specifying a building
---------------------
-To start mazemap with a specific buliding in view, use the _**desttype**_ and _**dest**_ together with the mandatory _**campusid**_ parameter
-
-```
-http://use.mazemap.com/?&campusid=1&desttype=bld&dest=55
-```
-*   _**desttype**_ defines the type expected for the dest parameter. For a building, you can use either **bld** or **building**.
-*   _**dest**_ defines the specific destination data in context of the _**desttype**_. For a building, this defines the **buildingID**.
-
-
 2. Specifying a POI destination
 --------------------
 To start mazemap with a specific POI in view, use the similar syntax as when specifying a building. 
