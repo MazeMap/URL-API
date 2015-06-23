@@ -181,12 +181,16 @@ http://use.mazemap.com/?campusid=1&typepois=9,27
 ```
 * `typepois` specifies a comma-separated list with `typepoiids`.
 
+
 #### List of typepoiids
 * 4 = PC
 * 7 = Study area
 * 9 = WC
 * 27 = Bus stop
 * 28 = Parking
+* ...
+
+[Full list of type POI IDs](TODO: provide this URL)
 
 
 More on version legacy
