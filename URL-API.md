@@ -115,12 +115,32 @@ http://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809
 
 Defining a custom zoom
 ----------------------
-If you want to override the default zoom, use the `zoom` parameter.
+To override the default zoom, use the `zoom` parameter.
 
 ```
 http://use.mazemap.com/?campusid=1&zoom=17
 ```
 * `zoom` can have a value between 1-22
+
+
+Defining a view
+---------------
+To override the default center point of the view, use the `viewtype` and `view` parameters. They follow the same syntax as the POIs, where the value of `viewtype` defines the format expected by the `view` parameter:
+
+```
+viewtype=poi&view=<MazeMap POI ID>
+viewtype=point&view=<longitude>,<latitude>,<floor>
+viewtype=identifier&view=<Lydia Building ID>-<Lydia Room ID>
+```
+
+To center the starting point of the path defined above (instead of centering the path which is default).
+
+```
+http://use.mazemap.com/?v=1&campusid=1&starttype=point&start=10.40290,63.41860,0&desttype=identifier&dest=322-620&viewtype=point&view=10.40290,63.41860,0
+```
+
+* `viewtype` defines the format expected by the `view` parameter. In this case, a `point`.
+* `view` is set to be the same point as `start`
 
 
 More on version legacy
