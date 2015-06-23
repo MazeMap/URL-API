@@ -30,8 +30,8 @@ http://use.mazemap.com/?campusid=1
 Specifying a POI (Point of Interest)
 --------------------
 
-#### Types of points
-There are 3 different types of points:
+#### Types of POIs
+There are 3 different types of POIs:
 
 1. `sharepoitype`
 2. `starttype`
