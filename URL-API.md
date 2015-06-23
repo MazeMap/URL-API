@@ -85,15 +85,15 @@ The `z` parameter is used to specify the _floor_ if the point lies inside a buil
 
 4. Defining a path
 --------------------
-To start mazemap with a predefined path, use the _**starttype**_ and _**start**_ parameters along with the previous _**desttype**_ and _**dest**_.
+To start mazemap with a predefined path, use the `starttype` and `start` parameters along with the `desttype` and `dest` parameters (described above).
 
 ```
 http://use.mazemap.com/?campusid=1&desttype=poi&dest=35994&starttype=point&start=10.4029047,63.4186015,0
 ```
-*   _**starttype**_ defines the type expected for the start parameter. In the example, a geographical _point_ outside is used, as described earlier.
-*   _**start**_ defines the geographical point in 4326 comma-separated array as described earlier. Can also be a POI.
-*   _**desttype**_ In the example, a POI is used as desttype.
-*   _**dest**_ In the example the poiID for MazeMap office is used as destination.
+*   `starttype` defines the format expected for the `start` parameter. In the example above, a geographical _point_ outside is used, as described earlier.
+*   `start` defines the geographical point in a comma-separated array as described earlier. Can also be `poi` or `identifier`, as described above.
+*   `desttype` In the example, a POI is used as destination type.
+*   `dest` In the example the poiID for MazeMap office is used as destination.
 
 
 5. Defining a custom name for start/destination
