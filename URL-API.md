@@ -91,7 +91,7 @@ To start mazemap with a predefined path, use the `starttype` and `start` paramet
 http://use.mazemap.com/?campusid=1&desttype=poi&dest=35994&starttype=point&start=10.4029047,63.4186015,0
 ```
 *   `starttype` defines the format expected for the `start` parameter. In the example above, a geographical _point_ outside is used, as described earlier.
-*   `start` defines the geographical point in a comma-separated array as described earlier. Can also be `poi` or `identifier`, as described above.
+*   `start` defines the geographical point in a comma-separated array as described earlier. It can also be `poi` or `identifier` with the corresponding format for the `start` parameter (described above).
 *   `desttype` In the example, a POI is used as destination type.
 *   `dest` In the example the poiID for MazeMap office is used as destination.
 
