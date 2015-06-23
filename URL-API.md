@@ -136,7 +136,7 @@ viewtype=identifier&view=<Lydia Building ID>-<Lydia Room ID>
 To center the starting point of the path defined above (instead of centering the path which is default).
 
 ```
-http://use.mazemap.com/?v=1&campusid=1&starttype=point&start=10.40290,63.41860,0&desttype=identifier&dest=322-620&viewtype=point&view=10.40290,63.41860,0
+http://use.mazemap.com/?v=1&campusid=1&viewtype=point&view=10.40290,63.41860,0&starttype=point&start=10.40290,63.41860,0&desttype=identifier&dest=322-620
 ```
 
 * `viewtype` defines the format expected by the `view` parameter. In this case, a `point`.
@@ -151,6 +151,10 @@ To simulate the position of the user, use the `postype` and `pos` parameters. Th
 postype=poi&pos=<MazeMap POI ID>
 postype=point&pos=<longitude>,<latitude>,<floor>
 postype=identifier&pos=<Lydia Building ID>-<Lydia Room ID>
+```
+
+```
+http://use.mazemap.com/?v=1&campusid=1&postype=point&pos=10.40213,63.41879,0
 ```
 
 #### Warning!
