@@ -140,7 +140,6 @@ To center the starting point of the path defined above (instead of centering the
 ```
 http://use.mazemap.com/?campusid=1&viewtype=point&view=10.40290,63.41860,0&starttype=point&start=10.40290,63.41860,0&desttype=identifier&dest=322-620
 ```
-
 * `viewtype` defines the format expected by the `view` parameter. In this case, a `point`.
 * `view` is set to be the same point as `start`
 
@@ -158,6 +157,8 @@ postype=identifier&pos=<Lydia Building ID>-<Lydia Room ID>
 ```
 http://use.mazemap.com/?campusid=1&postype=point&pos=10.40213,63.41879,0
 ```
+* `postype` defines the format expected by the `pos` parameter. In this case, a `point`.
+* `pos` defines the geographical point in a comma-separated list.
 
 #### Warning!
 If not used in the correct way, simulating positions can easily confuse the user. Be careful using it for other purposes than stationary info screens.
