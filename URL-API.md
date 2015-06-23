@@ -4,7 +4,7 @@ MazeMap URL API
 This document describes the basic use of the MazeMap URL API.
 
 
-0. Specifying the URL API version
+Specifying the URL API version
 --------------------
 The URL API supports versioning using the _**v**_ parameter, however it is not necessary to specify, as the API assumes the latest version by default. There are legacy functionality from version 0.5 that still works. More on that further down.
 
@@ -13,14 +13,14 @@ http://use.mazemap.com/?v=1
 ```
 
 
-1. Specifying a campus
+Specifying a campus
 --------------------
 To start mazemap with a specific campus in view, use the _**campusid**_ parameter. For other parameters, you must also specify the campus to provide proper context.
 
 ```
 http://use.mazemap.com/?campusid=1
 ```
->#####campusid's#####
+#### List of campusid's
 >* 1 = NTNU
 >* 3 = St.Olavs Hospital
 >* 5 = UiT
@@ -30,7 +30,7 @@ http://use.mazemap.com/?campusid=1
 Specifying a POI (Point of Interest)
 --------------------
 
-### Types of points
+#### Types of points
 There are 3 different types of points:
 
 1. `sharepoitype`
@@ -58,7 +58,7 @@ The general syntax is as follows:
 ```
 
 
-### Specifying a POI destination
+#### Specifying a POI destination
 To start mazemap with a specific POI in view, use `desttype=poi` and `dest=<POI>`.
 
 ```
@@ -68,7 +68,7 @@ http://use.mazemap.com/?campusid=1&desttype=poi&dest=593
 * `desttype` defines the format expected for the `dest` parameter. For a POI, use `poi` here.
 * `dest` defines the specific POI ID.
 
-### Specifying a generic point destination
+#### Specifying a generic point destination
 To start mazemap with a generic point in view, use `desttype=point` to specify longitude, latitude and floor.
 
 ```
@@ -83,7 +83,7 @@ dest=longitude,latitude,z
 The `z` parameter is used to specify the _floor_ if the point lies inside a building. If outside, the `z` parameter can be dropped, or simply be 0.
 
 
-4. Defining a path
+Defining a path
 --------------------
 To start mazemap with a predefined path, use the `starttype` and `start` parameters along with the `desttype` and `dest` parameters (described above).
 
@@ -96,7 +96,7 @@ http://use.mazemap.com/?campusid=1&desttype=poi&dest=35994&starttype=point&start
 *   `dest` In the example the poiID for MazeMap office is used as destination.
 
 
-5. Defining custom names for points
+Defining custom names for points
 -----------------------------------------------
 When starting MazeMap either with predefined points (e.g. if you have defined a path), you can input a custom string for the names of these points. I.e. if you you are linking to an office with id 404, you can specify that it should display as "John's Office". Use `%20` for spaces.
 
@@ -153,7 +153,7 @@ postype=point&pos=<longitude>,<latitude>,<floor>
 postype=identifier&pos=<Lydia Building ID>-<Lydia Room ID>
 ```
 
-### Warning!
+#### Warning!
 If not used in the correct way, simulating positions can easily confuse the user. Be careful using it for other purposes than stationary info screens.
 
 
