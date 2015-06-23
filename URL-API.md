@@ -39,45 +39,48 @@ There are 3 different types of points:
 
 They can be specified in 3 different ways:
 
-1. `point`
-2. `poi`
+1. `poi`
+2. `point`
 3. `identifier`
+
+The type defines the format expected by the related parameter:
+
+* `sharepoi` for `sharepoitype`
+* `start` for `starttype`
+* `dest` for `desttype`
 
 The general syntax is as follows:
 
 ```
-<sharepoi,start,dest>type=point&<sharepoi,start,dest>=<latitude>,<longitude>,<floor>
 <sharepoi,start,dest>type=poi&<sharepoi,start,dest>=<MazeMap POI ID>
+<sharepoi,start,dest>type=point&<sharepoi,start,dest>=<longitude>,<latitude>,<floor>
 <sharepoi,start,dest>type=identifier&<sharepoi,start,dest>=<Lydia Building ID>-<Lydia Room ID>
 ```
 
 
-2. Specifying a POI destination
---------------------
-To start mazemap with a specific POI in view, use the similar syntax as when specifying a building. 
+### Specifying a POI destination
+To start mazemap with a specific POI in view, use `desttype=poi` and `dest=<POI>`.
 
 ```
 http://use.mazemap.com/?campusid=1&desttype=poi&dest=593
 ```
-*   _**desttype**_ defines the type expected for the dest parameter. For a POI, you can must use the word **poi** here.
-*   _**dest**_ defines the specific **POI ID**.
 
+* `desttype` defines the format expected for the `dest` parameter. For a POI, use `poi` here.
+* `dest` defines the specific POI ID.
 
-3. Specifying a generic point destination
---------------------
-To start mazemap with a generic point in view use longitude and lattitude format
+### Specifying a generic point destination
+To start mazemap with a generic point in view, use `desttype=point` to specify longitude, latitude and floor.
 
 ```
 http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4026794,63.4183615,0
 http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035833,63.4178412,3
 ```
-*   _**desttype**_ defines the type expected for the dest parameter. For a generic point, you can must use the word **point** here.
-*   _**dest**_ defines the geographical point in 4326 comma-separated array as shown below.
-```javascript
-dest=lon,lat,z
-``` 
-The the z value is used to specify the _floor_, if the point lies inside a building. If outside, the _**z**_ parameter can be dropped, or be simply 0.
-
+* `desttype` defines the format expected for the `dest` parameter. For a generic point, use `point` here.
+*  `dest` defines the geographical point in a comma-separated array as shown below.
+```
+dest=longitude,latitude,z
+```
+The `z` parameter is used to specify the _floor_ if the point lies inside a building. If outside, the `z` parameter can be dropped, or simply be 0.
 
 
 4. Defining a path
