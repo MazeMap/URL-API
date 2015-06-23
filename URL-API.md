@@ -193,6 +193,16 @@ http://use.mazemap.com/?campusid=1&typepois=9,27
 [Full list of type POI IDs](TODO: provide this URL)
 
 
+Specify a language
+----------------------
+```
+http://use.mazemap.com/?campusid=1&lang=nb
+```
+* `lang` defines which language to use.
+  * `en` English
+  * `nb` Norsk Bokmål
+
+
 More on version legacy
 ----------------------
 TODO
