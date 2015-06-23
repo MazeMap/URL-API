@@ -96,14 +96,18 @@ http://use.mazemap.com/?campusid=1&desttype=poi&dest=35994&starttype=point&start
 *   `dest` In the example the poiID for MazeMap office is used as destination.
 
 
-5. Defining a custom name for start/destination
+5. Defining custom names for points
 -----------------------------------------------
-When starting MazeMap with predefined start or destination, you can input a custom string for the names of these points. I.e. if you you are linking to an office with id 404, you can specify that it should display as 'John's Office'.
+When starting MazeMap either with predefined points (e.g. if you have defined a path), you can input a custom string for the names of these points. I.e. if you you are linking to an office with id 404, you can specify that it should display as "John's Office". Use `%20` for spaces.
 
 ```
-http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035968,63.4175039,6&starttype=point&start=10.4030281,63.4185463,0&startname=Start%20Here&destname=Johns%20Office
+http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035968,63.4175039,6&starttype=point&start=10.4030281,63.4185463,0&startname=Start%20Here&destname=John's%20Office
 ```
-*   _**startname**_ defines the string to be used for the start point.
-*   _**destname**_ defines the string to be used for the end point.
+*   `startname` defines the string to be used for the start point.
+*   `destname` defines the string to be used for the end point.
 
+If you defined a `sharepoi`, use `sharepoiname` to customize the name.
 
+```
+http://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809,1&sharepoiname=Awesome%20Vending%20Machine
+```
