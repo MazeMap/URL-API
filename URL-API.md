@@ -4,33 +4,39 @@ MazeMap URL API
 This document describes the basic use of the MazeMap URL API.
 
 
-Specifying the URL API version
+Specifying a specific URL API version
 --------------------
-The URL API supports versioning using the _**v**_ parameter, however it is not necessary to specify, as the API assumes the latest version by default. There are legacy functionality from version 0.5 that still works. More on that further down.
-
 ```
 http://use.mazemap.com/?v=1
 ```
+* `v` defines the version, in this case `1`.
+
+The URL API supports versioning using the `v` parameter, however it is not necessary to specify as the API assumes the latest version by default. In the following examples we omit this parameter. There is legacy functionality from version 0.5 that still works. More on that further down.
 
 
 Specifying a campus
 --------------------
-To start mazemap with a specific campus in view, use the _**campusid**_ parameter. For other parameters, you must also specify the campus to provide proper context.
-
+To start MazeMap with a specific campus in view:
 ```
 http://use.mazemap.com/?campusid=1
 ```
+* `campusid` defines the campus in view, in this case `1`.
+
+To specify other parameters you must also specify the campus to provide proper context.
+
 #### List of campusids
-* 1 = NTNU
+* 1 = NTNU Gløshaugen
 * 3 = St.Olavs Hospital
 * 5 = UiT
 * ...
+
+[Full list of campus IDs](TODO: provide this URL)
 
 
 Specifying a POI (Point of Interest)
 --------------------
 
-#### Types of POIs
+#### POIs in general
 There are 3 different types of POIs:
 
 1. `sharepoitype`
@@ -39,11 +45,11 @@ There are 3 different types of POIs:
 
 They can be specified in 3 different ways:
 
-1. `poi`
-2. `point`
-3. `identifier`
+1. `poi` defines a MazeMap POI ID
+2. `point` defines a generic point by longitude, latitude and floor
+3. `identifier` defines a local ID
 
-The type defines the format expected by the related parameter:
+This defines the format expected by the parameter related to the type of POI.
 
 * `sharepoi` for `sharepoitype`
 * `start` for `starttype`
@@ -59,41 +65,38 @@ The general syntax is as follows:
 
 
 #### Specifying a POI destination
-To start mazemap with a specific POI in view, use `desttype=poi` and `dest=<POI>`.
-
+To start MazeMap with a specific POI in view:
 ```
 http://use.mazemap.com/?campusid=1&desttype=poi&dest=593
 ```
 
-* `desttype` defines the format expected for the `dest` parameter. For a POI, use `poi` here.
+* `desttype` defines the format expected by the `dest` parameter. In this case a POI ID.
 * `dest` defines the specific POI ID.
 
 #### Specifying a generic point destination
-To start mazemap with a generic point in view, use `desttype=point` to specify longitude, latitude and floor.
-
+To start MazeMap with a generic point in view:
 ```
 http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4026794,63.4183615,0
 http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035833,63.4178412,3
 ```
-* `desttype` defines the format expected for the `dest` parameter. For a generic point, use `point` here.
-*  `dest` defines the geographical point in a comma-separated list as shown below.
-```
-dest=longitude,latitude,z
-```
-The `z` parameter is used to specify the _floor_ if the point lies inside a building. If outside, the `z` parameter can be dropped, or simply be 0.
+* `desttype` defines the format expected by the `dest` parameter. In this case a generic point.
+* `dest` defines the geographical point as a comma-separated list:
+* ```
+  dest=longitude,latitude,z
+  ```
+  * `z` is used to specify the _floor_ if the point lies inside a building. If outside, the `z` parameter should be 0, or it can simply be dropped.
 
 
 Defining a path
 --------------------
-To start mazemap with a predefined path, use the `starttype` and `start` parameters along with the `desttype` and `dest` parameters (described above).
-
+To start MazeMap with a predefined path:
 ```
-http://use.mazemap.com/?campusid=1&desttype=poi&dest=35994&starttype=point&start=10.4029047,63.4186015,0
+http://use.mazemap.com/?campusid=1&starttype=point&start=10.4029047,63.4186015,0&desttype=poi&dest=35994
 ```
-*   `starttype` defines the format expected for the `start` parameter. In the example above, a geographical _point_ outside is used, as described earlier.
-*   `start` defines the geographical point in a comma-separated list as described earlier. It can also be `poi` or `identifier` with the corresponding format for the `start` parameter (described above).
-*   `desttype` In the example, a POI is used as destination type.
-*   `dest` In the example the poiID for MazeMap office is used as destination.
+* `starttype` defines the format expected by the `start` parameter. In this case a geographical point outside.
+* `start` defines the geographical point in a comma-separated list.
+* `desttype` In the example, a POI is used as destination type.
+* `dest` In the example the poiID for MazeMap office is used as destination.
 
 
 Defining custom names for points
@@ -103,11 +106,10 @@ When starting MazeMap either with predefined points (e.g. if you have defined a 
 ```
 http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035968,63.4175039,6&starttype=point&start=10.4030281,63.4185463,0&startname=Start%20Here&destname=John's%20Office
 ```
-*   `startname` defines the string to be used for the start point.
-*   `destname` defines the string to be used for the end point.
+* `startname` defines the string to be used for the start point.
+* `destname` defines the string to be used for the destination point.
 
 If you defined a `sharepoi`, use `sharepoiname` to customize the name.
-
 ```
 http://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809,1&sharepoiname=Awesome%20Vending%20Machine
 ```
@@ -115,7 +117,7 @@ http://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809
 
 Defining a custom zoom
 ----------------------
-To override the default zoom, use the `zoom` parameter.
+To override the default zoom:
 
 ```
 http://use.mazemap.com/?campusid=1&zoom=17
