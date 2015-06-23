@@ -125,7 +125,7 @@ http://use.mazemap.com/?campusid=1&zoom=17
 
 Defining a view
 ---------------
-To override the default center point of the view, use the `viewtype` and `view` parameters. They follow the same syntax as the POIs, where the value of `viewtype` defines the format expected by the `view` parameter:
+To override the default center point of the view, use the `viewtype` and `view` parameters. They follow the same syntax as the POIs, where the value of `viewtype` defines the format expected by the `view` parameter.
 
 ```
 viewtype=poi&view=<MazeMap POI ID>
@@ -141,6 +141,20 @@ http://use.mazemap.com/?v=1&campusid=1&starttype=point&start=10.40290,63.41860,0
 
 * `viewtype` defines the format expected by the `view` parameter. In this case, a `point`.
 * `view` is set to be the same point as `start`
+
+
+Simulating a position
+---------------------
+To simulate the position of the user, use the `postype` and `pos` parameters. They follow the same syntax as the POIs, where the value of `postype` defines the format expected by the `pos` parameter.
+
+```
+postype=poi&pos=<MazeMap POI ID>
+postype=point&pos=<longitude>,<latitude>,<floor>
+postype=identifier&pos=<Lydia Building ID>-<Lydia Room ID>
+```
+
+### Warning!
+If not used in the correct way, simulating positions can easily confuse the user. Be careful using it for other purposes than stationary info screens.
 
 
 More on version legacy
