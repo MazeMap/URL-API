@@ -136,7 +136,7 @@ viewtype=identifier&view=<Lydia Building ID>-<Lydia Room ID>
 To center the starting point of the path defined above (instead of centering the path which is default).
 
 ```
-http://use.mazemap.com/?v=1&campusid=1&viewtype=point&view=10.40290,63.41860,0&starttype=point&start=10.40290,63.41860,0&desttype=identifier&dest=322-620
+http://use.mazemap.com/?campusid=1&viewtype=point&view=10.40290,63.41860,0&starttype=point&start=10.40290,63.41860,0&desttype=identifier&dest=322-620
 ```
 
 * `viewtype` defines the format expected by the `view` parameter. In this case, a `point`.
@@ -154,11 +154,19 @@ postype=identifier&pos=<Lydia Building ID>-<Lydia Room ID>
 ```
 
 ```
-http://use.mazemap.com/?v=1&campusid=1&postype=point&pos=10.40213,63.41879,0
+http://use.mazemap.com/?campusid=1&postype=point&pos=10.40213,63.41879,0
 ```
 
 #### Warning!
 If not used in the correct way, simulating positions can easily confuse the user. Be careful using it for other purposes than stationary info screens.
+
+
+Specifying the placement of 'Open in new window' link
+-----------------------------------------------------
+```
+http://use.mazemap.com/?campusid=1&newtablink=inside
+```
+* `newtablink` can be either `inside`, `outside` or `none`. It's intended to be used with iframes, e.g. when embedding maps on web sites.
 
 
 More on version legacy
