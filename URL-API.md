@@ -27,6 +27,31 @@ http://use.mazemap.com/?campusid=1
 >* ...
 
 
+Specifying a POI (Point of Interest)
+--------------------
+
+### Types of points
+There are 3 different types of points:
+
+1. `sharepoitype`
+2. `starttype`
+3. `desttype`
+
+They can be specified in 3 different ways:
+
+1. `point`
+2. `poi`
+3. `identifier`
+
+The general syntax is as follows:
+
+```
+<sharepoi,start,dest>type=point&<sharepoi,start,dest>=<latitude>,<longitude>,<floor>
+<sharepoi,start,dest>type=poi&<sharepoi,start,dest>=<MazeMap POI ID>
+<sharepoi,start,dest>type=identifier&<sharepoi,start,dest>=<Lydia Building ID>-<Lydia Room ID>
+```
+
+
 2. Specifying a POI destination
 --------------------
 To start mazemap with a specific POI in view, use the similar syntax as when specifying a building. 
