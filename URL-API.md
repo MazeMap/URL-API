@@ -20,11 +20,11 @@ To start mazemap with a specific campus in view, use the _**campusid**_ paramete
 ```
 http://use.mazemap.com/?campusid=1
 ```
-#### List of campusid's
->* 1 = NTNU
->* 3 = St.Olavs Hospital
->* 5 = UiT
->* ...
+#### List of campusids
+* 1 = NTNU
+* 3 = St.Olavs Hospital
+* 5 = UiT
+* ...
 
 
 Specifying a POI (Point of Interest)
@@ -76,7 +76,7 @@ http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4026794,63.4183615,0
 http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035833,63.4178412,3
 ```
 * `desttype` defines the format expected for the `dest` parameter. For a generic point, use `point` here.
-*  `dest` defines the geographical point in a comma-separated array as shown below.
+*  `dest` defines the geographical point in a comma-separated list as shown below.
 ```
 dest=longitude,latitude,z
 ```
@@ -91,7 +91,7 @@ To start mazemap with a predefined path, use the `starttype` and `start` paramet
 http://use.mazemap.com/?campusid=1&desttype=poi&dest=35994&starttype=point&start=10.4029047,63.4186015,0
 ```
 *   `starttype` defines the format expected for the `start` parameter. In the example above, a geographical _point_ outside is used, as described earlier.
-*   `start` defines the geographical point in a comma-separated array as described earlier. It can also be `poi` or `identifier` with the corresponding format for the `start` parameter (described above).
+*   `start` defines the geographical point in a comma-separated list as described earlier. It can also be `poi` or `identifier` with the corresponding format for the `start` parameter (described above).
 *   `desttype` In the example, a POI is used as destination type.
 *   `dest` In the example the poiID for MazeMap office is used as destination.
 
@@ -167,6 +167,23 @@ Specifying the placement of 'Open in new window' link
 http://use.mazemap.com/?campusid=1&newtablink=inside
 ```
 * `newtablink` can be either `inside`, `outside` or `none`. It's intended to be used with iframes, e.g. when embedding maps on web sites.
+
+
+Add type POIs
+-------------
+Type POIs are generic types of POIs.
+
+```
+http://use.mazemap.com/?campusid=1&typepois=9,27
+```
+* `typepois` specifies a comma-separated list with `typepoiids`.
+
+#### List of typepoiids
+* 4 = PC
+* 7 = Study area
+* 9 = WC
+* 27 = Bus stop
+* 28 = Parking
 
 
 More on version legacy
