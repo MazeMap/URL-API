@@ -111,3 +111,18 @@ If you defined a `sharepoi`, use `sharepoiname` to customize the name.
 ```
 http://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809,1&sharepoiname=Awesome%20Vending%20Machine
 ```
+
+
+Defining a custom zoom
+----------------------
+If you want to override the default zoom, use the `zoom` parameter.
+
+```
+http://use.mazemap.com/?campusid=1&zoom=17
+```
+* `zoom` can have a value between 1-22
+
+
+More on version legacy
+----------------------
+TODO
