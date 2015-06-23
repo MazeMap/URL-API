@@ -21,9 +21,10 @@ To start mazemap with a specific campus in view, use the _**campusid**_ paramete
 http://use.mazemap.com/?campusid=1
 ```
 >#####campusid's#####
->1. NTNU
->3. St.Olavs Hospital
->5. UiT
+>* 1 = NTNU
+>* 3 = St.Olavs Hospital
+>* 5 = UiT
+>* ...
 
 
 2. Specifying a POI destination
