@@ -212,6 +212,15 @@ http://use.mazemap.com/?campusid=1&search=Your%20string
 * `search` defines the string. It must be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). In this example, `%20` is used for the space character.
 
 
+Defining a custom floor level
+-----------------------------
+To override the default floor level:
+```
+http://use.mazemap.com/?campusid=1&zlevel=5
+```
+* `zlevel` defines which floor the view is set to. This might be different from building to building, i.e. `zlevel=2` might not always mean the 2nd floor.
+
+
 More on version legacy
 ----------------------
 TODO
