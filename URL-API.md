@@ -1,11 +1,9 @@
-MazeMap URL API
-===============
+# MazeMap URL API
 
 This document describes the basic use of the MazeMap URL API.
 
 
-Specifying a specific URL API version
---------------------
+## Specifying a specific URL API version
 
 ```
 http://use.mazemap.com/?v=1
@@ -16,8 +14,7 @@ http://use.mazemap.com/?v=1
 The URL API supports versioning using the `v` parameter, however it is not necessary to specify as the API assumes the latest version by default. In the following examples we omit this parameter. There is legacy functionality from version 0.5 that still works. More on that further down.
 
 
-Specifying a campus
---------------------
+## Specifying a campus
 
 To start MazeMap with a specific campus in view:
 
@@ -31,24 +28,28 @@ To specify other parameters you must also specify the campus to provide proper c
 
 #### Examples of campusids
 
-* 1 = NTNU Gløshaugen
-* 3 = St. Olavs Hospital
-* 4 = OSL
-* 5 = UiT
+* `1` NTNU Gløshaugen
+* `3` St. Olavs Hospital
+* `4` OSL
+* `5` UiT
+* `0` Clear cache to ensure the application starts with a 'fresh start' view.
 
 A full list of campus IDs migth be available in the future.
 
+#### Omitting campusid
+As of 2015-06-18, if you specify a POI that is _**globally**_ unique, the `campusid` parameter can be omitted. Note however that POIs defined using `identifier` might not be globally unique, so including `campusid` for this use might be a good idea.
 
-Specifying a POI (Point of Interest)
---------------------
+## Specifying a POI (Point of Interest)
 
 #### POIs in general
 
-There are 3 different types of POIs:
+There are 5 different types of POIs:
 
 1. `sharepoitype`
 2. `starttype`
 3. `desttype`
+4. `viewtype`
+5. `postype`
 
 They can be specified in 3 different ways:
 
@@ -62,12 +63,12 @@ This defines the format expected by the parameter related to the type of POI.
 * `start` for `starttype`
 * `dest` for `desttype`
 
-The general syntax is as follows:
+The syntax is as follows:
 
 ```
-<sharepoi,start,dest>type=poi&<sharepoi,start,dest>=<MazeMap POI ID>
-<sharepoi,start,dest>type=point&<sharepoi,start,dest>=<longitude>,<latitude>,<floor>
-<sharepoi,start,dest>type=identifier&<sharepoi,start,dest>=<Lydia Building ID>-<Lydia Room ID>
+<sharepoi,start,dest,view,pos>type=poi&<sharepoi,start,dest,view,pos>=<MazeMap POI ID>
+<sharepoi,start,dest,view,pos>type=point&<sharepoi,start,dest,view,pos>=<longitude>,<latitude>,<floor>
+<sharepoi,start,dest,view,pos>type=identifier&<sharepoi,start,dest,view,pos>=<Customer defined ID>
 ```
 
 
@@ -92,11 +93,10 @@ http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035833,63.4178412,3
 ```
 
 * `desttype` defines the format expected by the `dest` parameter. In this case a generic point.
-* `dest` defines the geographical point as a comma-separated list `dest=longitude,latitude,z` where `z` is used to specify the _floor_ if the point lies inside a building. If outside, the `z` parameter should be 0, or it can simply be dropped.
+* `dest` defines the geographical point as a comma-separated list `dest=longitude,latitude,z-index` where `z-index` is used to specify the floor, if the point lies indoors. The value of `z-index` _usually_ matches the floor, but this might vary from building to building. If outdoors, the `z-index` parameter should be 0, or it can simply be dropped.
 
 
-Defining a path
---------------------
+## Defining a path
 
 To start MazeMap with a predefined path:
 
@@ -110,13 +110,12 @@ http://use.mazemap.com/?campusid=1&starttype=point&start=10.4029047,63.4186015,0
 * `dest` In the example the poiID for MazeMap office is used as destination.
 
 
-Defining custom names for points
------------------------------------------------
+## Defining custom names for points
 
-When starting MazeMap either with predefined points (e.g. if you have defined a path), you can input a custom string for the names of these points. I.e. if you you are linking to an office with id 404, you can specify that it should display as "John's Office". Use `%20` for spaces.
+When starting MazeMap either with predefined points (e.g. if you have defined a path), you can input a custom string for the names of these points. I.e. if you you are linking to an office with id 404, you can specify that it should display as "John's Office".
 
 ```
-http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035968,63.4175039,6&starttype=point&start=10.4030281,63.4185463,0&startname=Start%20Here&destname=John's%20Office
+http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035968,63.4175039,6&starttype=point&start=10.4030281,63.4185463,0&startname=Start Here&destname=John's Office
 ```
 
 * `startname` defines the string to be used for the start point.
@@ -125,12 +124,11 @@ http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035968,63.4175039,6&s
 If you defined a `sharepoi`, use `sharepoiname` to customize the name.
 
 ```
-http://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809,1&sharepoiname=Awesome%20Vending%20Machine
+http://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809,1&sharepoiname=Vending Machine X
 ```
 
 
-Defining a custom zoom
-----------------------
+## Defining a custom zoom
 
 To override the default zoom:
 
@@ -141,18 +139,17 @@ http://use.mazemap.com/?campusid=1&zoom=17
 * `zoom` can have a value between 1-22
 
 
-Defining a view
----------------
+## Defining a custom view
 
-To override the default center point of the view, use the `viewtype` and `view` parameters. They follow the same syntax as the POIs, where the value of `viewtype` defines the format expected by the `view` parameter.
+To override the default center point of the view, use the `viewtype` and `view` parameters. The syntax was discussed in general under 'POIs in general'. The value of `viewtype` defines the format expected by the `view` parameter.
 
 ```
 viewtype=poi&view=<MazeMap POI ID>
 viewtype=point&view=<longitude>,<latitude>,<floor>
-viewtype=identifier&view=<Lydia Building ID>-<Lydia Room ID>
+viewtype=identifier&view=<Customer defined ID>
 ```
 
-To center the starting point of the path defined above (instead of centering the path which is default).
+To center the starting point of the path defined above (instead of centering the path which is default):
 
 ```
 http://use.mazemap.com/?campusid=1&viewtype=point&view=10.40290,63.41860,0&starttype=point&start=10.40290,63.41860,0&desttype=identifier&dest=322-620
@@ -162,15 +159,14 @@ http://use.mazemap.com/?campusid=1&viewtype=point&view=10.40290,63.41860,0&start
 * `view` is set to be the same point as `start`
 
 
-Simulating a position
----------------------
+## Simulating a position
 
-To simulate the position of the user, use the `postype` and `pos` parameters. They follow the same syntax as the POIs, where the value of `postype` defines the format expected by the `pos` parameter.
+To simulate the position of the user, use the `postype` and `pos` parameters. The syntax was discussed in general under 'POIs in general'. The value of `postype` defines the format expected by the `pos` parameter.
 
 ```
 postype=poi&pos=<MazeMap POI ID>
 postype=point&pos=<longitude>,<latitude>,<floor>
-postype=identifier&pos=<Lydia Building ID>-<Lydia Room ID>
+postype=identifier&pos=<Customer defined ID>
 ```
 
 ```
@@ -185,8 +181,7 @@ http://use.mazemap.com/?campusid=1&postype=point&pos=10.40213,63.41879,0
 If not used in the correct way, simulating positions can easily confuse the user. Be careful using it for other purposes than stationary info screens.
 
 
-Specifying the placement of 'Open in new window' link
------------------------------------------------------
+## Specifying the placement of 'Open in new window' link
 
 ```
 http://use.mazemap.com/?campusid=1&newtablink=inside
@@ -195,8 +190,7 @@ http://use.mazemap.com/?campusid=1&newtablink=inside
 * `newtablink` can be either `inside`, `outside` or `none`. It's intended to be used with iframes, e.g. when embedding maps on web sites.
 
 
-Adding type POIs
--------------
+## Adding type POIs
 
 Type POIs are generic types of POIs.
 
@@ -209,18 +203,17 @@ http://use.mazemap.com/?campusid=1&typepois=9,27
 
 #### Examples of typepoiids
 
-* 4 = PC
-* 7 = Study area
-* 9 = WC
-* 27 = Bus stop
-* 28 = Parking
-* 114 = Power outlets
+* `4` PC
+* `7` Study area
+* `9` WC
+* `27` Bus stop
+* `28` Parking
+* `114` Power outlets
 
 A full list of type POI IDs migth be available in the future.
 
 
-Specifying a language
-----------------------
+## Specifying a language
 
 ```
 http://use.mazemap.com/?campusid=1&lang=nb
@@ -231,8 +224,7 @@ http://use.mazemap.com/?campusid=1&lang=nb
   * `nb` Norsk Bokmål
 
 
-Defining a search string
-------------------------
+## Defining a search string
 
 To start MazeMap with a predefined search string:
 
@@ -243,8 +235,7 @@ http://use.mazemap.com/?campusid=1&search=Your%20string
 * `search` defines the string. It must be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). In this example, `%20` is used for the space character.
 
 
-Defining a custom floor level
------------------------------
+## Defining a custom floor level
 
 To override the default floor level:
 
@@ -255,8 +246,7 @@ http://use.mazemap.com/?campusid=1&zlevel=5
 * `zlevel` defines which floor the view is set to. This might be different from building to building, i.e. `zlevel=2` might not always mean the 2nd floor.
 
 
-Force accessibility path state
-------------------------------
+## Force accessibility path state
 
 To override the user's setting of whether things like stairs should be avoided:
 
@@ -269,8 +259,7 @@ http://use.mazemap.com/?campusid=1&disabledpath=true&starttype=point&start=10.40
   * `false` (default) no accessibility requirements on the path
 
 
-Limiting the list of locations
-------------------------------
+## Limiting the list of locations
 
 For some institutions, it is possible to only show the institution's campuses in the 'Choose location' list that is shown when the view is zoomed out enough.
 
@@ -287,6 +276,5 @@ http://use.mazemap.com/?campuses=ntnu&zoom=12
 * `uib` University of Bergen
 
 
-More on version legacy
-----------------------
-TODO
+## More on version legacy
+Info to come..
