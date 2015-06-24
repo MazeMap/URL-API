@@ -242,10 +242,10 @@ http://use.mazemap.com/?campusid=1&lang=nb
 To start MazeMap with a predefined search string:
 
 ```
-http://use.mazemap.com/?campusid=1&search=Your%20string
+http://use.mazemap.com/?campusid=1&search=Your string
 ```
 
-* `search` defines the string. It must be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). In this example, `%20` is used for the space character.
+* `search` defines the string.
 
 
 ## Specifying a custom floor level
