@@ -24,13 +24,13 @@ http://use.mazemap.com/?campusid=1
 
 To specify other parameters you must also specify the campus to provide proper context.
 
-#### List of campusids
+#### Examples of campusids
 * 1 = NTNU Gløshaugen
-* 3 = St.Olavs Hospital
+* 3 = St. Olavs Hospital
+* 4 = OSL
 * 5 = UiT
-* ...
 
-[Full list of campus IDs](TODO: provide this URL)
+A full list of campus IDs migth be available in the future.
 
 
 Specifying a POI (Point of Interest)
@@ -182,15 +182,15 @@ http://use.mazemap.com/?campusid=1&typepois=9,27
 * `typepois` specifies a comma-separated list with `typepoiids`.
 
 
-#### List of typepoiids
+#### Examples of typepoiids
 * 4 = PC
 * 7 = Study area
 * 9 = WC
 * 27 = Bus stop
 * 28 = Parking
-* ...
+* 114 = Power outlets
 
-[Full list of type POI IDs](TODO: provide this URL)
+A full list of type POI IDs migth be available in the future.
 
 
 Specifying a language
@@ -219,6 +219,17 @@ To override the default floor level:
 http://use.mazemap.com/?campusid=1&zlevel=5
 ```
 * `zlevel` defines which floor the view is set to. This might be different from building to building, i.e. `zlevel=2` might not always mean the 2nd floor.
+
+
+Force accessibility path state
+------------------------------
+To override the user's setting of whether things like stairs should be avoided:
+```
+http://use.mazemap.com/?campusid=1&disabledpath=true&starttype=point&start=10.4029047,63.4186015,0&desttype=poi&dest=35994
+```
+* `disabledpath`
+  * `true` avoid things like stairs
+  * `false` (default) no accessibility requirements on the path
 
 
 More on version legacy
