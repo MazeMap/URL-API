@@ -36,7 +36,7 @@ To specify other parameters you must also specify the campus to provide proper c
 
 A full list of campus IDs migth be available in the future.
 
-#### Omitting campusid
+#### Omitting `campusid`
 As of 2015-06-18, if you specify a POI that is _**globally**_ unique, the `campusid` parameter can be omitted. Note however that POIs defined using `identifier` are not globally unique, and therefore needs either the `campusid` or `campuses` parameter for proper context. One of these must be provided.
 
 
@@ -89,7 +89,7 @@ The syntax is as follows:
 ```
 
 
-#### Specifying destination by POI ID
+#### Specifying a destination by a POI ID
 
 To start MazeMap with a specific POI in view:
 
@@ -100,7 +100,7 @@ http://use.mazemap.com/?campusid=1&desttype=poi&dest=593
 * `desttype` defines the format expected by the `dest` parameter. In this case a POI ID.
 * `dest` defines the specific POI ID.
 
-#### Specifying destination by a generic point
+#### Specifying a destination by a generic point
 
 To start MazeMap with a generic point in view:
 
@@ -112,7 +112,7 @@ http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035833,63.4178412,3
 * `desttype` defines the format expected by the `dest` parameter. In this case a generic point.
 * `dest` defines the geographical point as a comma-separated list `dest=longitude,latitude,z-index` where `z-index` is used to specify the floor, if the point lies indoors. The value of `z-index` _usually_ matches the floor, but this might vary from building to building. If outdoors, the `z-index` parameter should be 0, or it can simply be dropped.
 
-#### Specifying destination by a customer defined ID
+#### Specifying a destination by a customer defined ID
 
 To start MazeMap with a customer defined point in view:
 
@@ -217,10 +217,10 @@ Type POIs are generic types of POIs.
 http://use.mazemap.com/?campusid=1&typepois=9,27
 ```
 
-* `typepois` specifies a comma-separated list with `typepoiids`.
+* `typepois` specifies a comma-separated list with IDs.
 
 
-#### Examples of typepoiids
+#### Examples of `typepois` ids
 
 * `4` PC
 * `7` Study area
@@ -232,7 +232,9 @@ http://use.mazemap.com/?campusid=1&typepois=9,27
 A full list of type POI IDs migth be available in the future.
 
 
-## Specifying a language
+## Forcing a language
+
+To override the user's language settings:
 
 ```
 http://use.mazemap.com/?campusid=1&lang=nb
