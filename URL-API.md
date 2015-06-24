@@ -62,13 +62,11 @@ http://use.mazemap.com/?campuses=ntnu&zoom=12
 
 #### POIs in general
 
-There are 5 different types of POIs:
+There are 3 different types of POIs:
 
 1. `sharepoitype` defines a sharing point. Use to share a single point.
 2. `starttype` defines a starting point. Use as the start of a path.
 3. `desttype` defines a destination point. Use as the destination of a path or as a single destination point.
-4. `viewtype` defines a view point. Use to set custom center of the view.
-5. `postype` defines a position point. Use to simulate the current position.
 
 They can be specified in 3 different ways:
 
@@ -81,15 +79,13 @@ This defines the format expected by the parameter related to the type of POI.
 * `sharepoi` for `sharepoitype`
 * `start` for `starttype`
 * `dest` for `desttype`
-* `view` for `viewtype`
-* `pos` for `postype`
 
 The syntax is as follows:
 
 ```
-<sharepoi,start,dest,view,pos>type=poi&<sharepoi,start,dest,view,pos>=<MazeMap POI ID>
-<sharepoi,start,dest,view,pos>type=point&<sharepoi,start,dest,view,pos>=<longitude>,<latitude>,<floor>
-<sharepoi,start,dest,view,pos>type=identifier&<sharepoi,start,dest,view,pos>=<Customer defined ID>
+<sharepoi,start,dest>type=poi&<sharepoi,start,dest>=<MazeMap POI ID>
+<sharepoi,start,dest>type=point&<sharepoi,start,dest>=<longitude>,<latitude>,<floor>
+<sharepoi,start,dest>type=identifier&<sharepoi,start,dest>=<Customer defined ID>
 ```
 
 
