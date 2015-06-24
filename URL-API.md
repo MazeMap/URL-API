@@ -232,6 +232,20 @@ http://use.mazemap.com/?campusid=1&disabledpath=true&starttype=point&start=10.40
   * `false` (default) no accessibility requirements on the path
 
 
+Limiting the list of locations
+------------------------------
+For some institutions, it is possible to only show the institution's campuses in the 'Choose location' list that is shown when the view is zoomed out enough.
+```
+http://use.mazemap.com/?campuses=ntnu&zoom=12
+```
+* `campuses` defines which group of campuses to show in the list.
+
+#### Examples of campuses values
+* `ntnu` NTNU
+* `uit` University of Tromsø
+* `uib` University of Bergen
+
+
 More on version legacy
 ----------------------
 TODO
