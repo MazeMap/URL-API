@@ -45,11 +45,11 @@ As of 2015-06-18, if you specify a POI that is _**globally**_ unique, the `campu
 
 There are 5 different types of POIs:
 
-1. `sharepoitype`
-2. `starttype`
-3. `desttype`
-4. `viewtype`
-5. `postype`
+1. `sharepoitype` defines a sharing point. Use to share a single point.
+2. `starttype` defines a starting point. Use as the start of a path.
+3. `desttype` defines a destination point. Use as the destination of a path or as a single destination point.
+4. `viewtype` defines a view point. Use to set custom center of the view.
+5. `postype` defines a position point. Use to simulate the current position.
 
 They can be specified in 3 different ways:
 
@@ -62,6 +62,8 @@ This defines the format expected by the parameter related to the type of POI.
 * `sharepoi` for `sharepoitype`
 * `start` for `starttype`
 * `dest` for `desttype`
+* `view` for `viewtype`
+* `pos` for `postype`
 
 The syntax is as follows:
 
@@ -72,7 +74,7 @@ The syntax is as follows:
 ```
 
 
-#### Specifying a POI destination
+#### Specifying destination by POI ID
 
 To start MazeMap with a specific POI in view:
 
@@ -83,7 +85,7 @@ http://use.mazemap.com/?campusid=1&desttype=poi&dest=593
 * `desttype` defines the format expected by the `dest` parameter. In this case a POI ID.
 * `dest` defines the specific POI ID.
 
-#### Specifying a generic point destination
+#### Specifying destination by a generic point
 
 To start MazeMap with a generic point in view:
 
@@ -94,6 +96,17 @@ http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035833,63.4178412,3
 
 * `desttype` defines the format expected by the `dest` parameter. In this case a generic point.
 * `dest` defines the geographical point as a comma-separated list `dest=longitude,latitude,z-index` where `z-index` is used to specify the floor, if the point lies indoors. The value of `z-index` _usually_ matches the floor, but this might vary from building to building. If outdoors, the `z-index` parameter should be 0, or it can simply be dropped.
+
+#### Specifying destination by a customer defined ID
+
+To start MazeMap with a customer defined point in view:
+
+```
+http://use.mazemap.com/?campusid=18&desttype=identifier&dest=810-2425
+```
+
+* `desttype` defines the format expected by the `dest` parameter. In this case an identifier.
+* `dest` defines the customer defined ID of the POI. In this case room 8102425 at NTNU Dragvoll.
 
 
 ## Defining a path
@@ -107,7 +120,7 @@ http://use.mazemap.com/?campusid=1&starttype=point&start=10.4029047,63.4186015,0
 * `starttype` defines the format expected by the `start` parameter. In this case a geographical point outside.
 * `start` defines the geographical point in a comma-separated list.
 * `desttype` In the example, a POI is used as destination type.
-* `dest` In the example the poiID for MazeMap office is used as destination.
+* `dest` In the example the POI ID for MazeMap office is used as destination.
 
 
 ## Defining custom names for points
