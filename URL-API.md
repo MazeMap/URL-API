@@ -11,7 +11,7 @@ http://use.mazemap.com/?v=1
 
 * `v` defines the version, in this case `1`.
 
-The URL API supports versioning using the `v` parameter, however it is not necessary to specify as the API assumes the latest version by default. In the following examples we omit this parameter. There is legacy functionality from version 0.5 that still works. More on that further down.
+The URL API supports versioning using the `v` parameter, however it is not necessary to specify as the API assumes the latest version by default. In the following examples we omit this parameter.
 
 
 ## Specifying a campus
@@ -26,18 +26,37 @@ http://use.mazemap.com/?campusid=1
 
 To specify other parameters you must also specify the campus to provide proper context.
 
-#### Examples of campusids
+#### Examples of `campusid` values
 
 * `1` NTNU Gløshaugen
 * `3` St. Olavs Hospital
 * `4` OSL
 * `5` UiT
-* `0` Clear cache to ensure the application starts with a 'fresh start' view.
+* `0` Special value that tells the application to start with no particular campus by default.
 
 A full list of campus IDs migth be available in the future.
 
 #### Omitting campusid
-As of 2015-06-18, if you specify a POI that is _**globally**_ unique, the `campusid` parameter can be omitted. Note however that POIs defined using `identifier` might not be globally unique, so including `campusid` for this use might be a good idea.
+As of 2015-06-18, if you specify a POI that is _**globally**_ unique, the `campusid` parameter can be omitted. Note however that POIs defined using `identifier` are not globally unique, and therefore needs either the `campusid` or `campuses` parameter for proper context. One of these must be provided.
+
+
+## Limiting the list of locations
+
+For some institutions, it is possible to only show the institution's campuses in the 'Choose location' list that is shown when the view is zoomed out enough.
+
+```
+http://use.mazemap.com/?campuses=ntnu&zoom=12
+```
+
+* `campuses` defines which group of campuses to show in the list.
+* `zoom` defines a specific zoom value. It is explained in detail later.
+
+#### Examples of `campuses` values
+
+* `ntnu` NTNU
+* `uit` University of Tromsø
+* `uib` University of Bergen
+
 
 ## Specifying a POI (Point of Interest)
 
@@ -149,7 +168,7 @@ To override the default zoom:
 http://use.mazemap.com/?campusid=1&zoom=17
 ```
 
-* `zoom` can have a value between 1-22
+* `zoom` defines a specific zoom value. It can have a value between 1-22.
 
 
 ## Specifying a custom view
@@ -192,15 +211,6 @@ http://use.mazemap.com/?campusid=1&postype=point&pos=10.40213,63.41879,0
 #### Warning!
 
 If not used in the correct way, simulating positions can easily confuse the user. Be careful using it for other purposes than stationary info screens.
-
-
-## Specifying the placement of 'Open in new window' link
-
-```
-http://use.mazemap.com/?campusid=1&newtablink=inside
-```
-
-* `newtablink` can be either `inside`, `outside` or `none`. It's intended to be used with iframes, e.g. when embedding maps on web sites.
 
 
 ## Adding type POIs
@@ -257,37 +267,3 @@ http://use.mazemap.com/?campusid=1&zlevel=5
 ```
 
 * `zlevel` defines which floor the view is set to. This might be different from building to building, i.e. `zlevel=2` might not always mean the 2nd floor.
-
-
-## Force accessibility path state
-
-To override the user's setting of whether things like stairs should be avoided:
-
-```
-http://use.mazemap.com/?campusid=1&disabledpath=true&starttype=point&start=10.4029047,63.4186015,0&desttype=poi&dest=35994
-```
-
-* `disabledpath`
-  * `true` avoid things like stairs
-  * `false` (default) no accessibility requirements on the path
-
-
-## Limiting the list of locations
-
-For some institutions, it is possible to only show the institution's campuses in the 'Choose location' list that is shown when the view is zoomed out enough.
-
-```
-http://use.mazemap.com/?campuses=ntnu&zoom=12
-```
-
-* `campuses` defines which group of campuses to show in the list.
-
-#### Examples of campuses values
-
-* `ntnu` NTNU
-* `uit` University of Tromsø
-* `uib` University of Bergen
-
-
-## More on version legacy
-Info to come..
