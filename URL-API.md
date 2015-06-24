@@ -172,7 +172,7 @@ http://use.mazemap.com/?campusid=1&newtablink=inside
 * `newtablink` can be either `inside`, `outside` or `none`. It's intended to be used with iframes, e.g. when embedding maps on web sites.
 
 
-Add type POIs
+Adding type POIs
 -------------
 Type POIs are generic types of POIs.
 
@@ -193,7 +193,7 @@ http://use.mazemap.com/?campusid=1&typepois=9,27
 [Full list of type POI IDs](TODO: provide this URL)
 
 
-Specify a language
+Specifying a language
 ----------------------
 ```
 http://use.mazemap.com/?campusid=1&lang=nb
@@ -201,6 +201,15 @@ http://use.mazemap.com/?campusid=1&lang=nb
 * `lang` defines which language to use.
   * `en` English
   * `nb` Norsk Bokmål
+
+
+Defining a search string
+------------------------
+To start MazeMap with a predefined search string:
+```
+http://use.mazemap.com/?campusid=1&search=Your%20string
+```
+* `search` defines the string. It must be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). In this example, `%20` is used for the space character.
 
 
 More on version legacy
