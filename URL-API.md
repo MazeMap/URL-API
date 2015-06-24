@@ -109,7 +109,7 @@ http://use.mazemap.com/?campusid=18&desttype=identifier&dest=810-2425
 * `dest` defines the customer defined ID of the POI. In this case room 8102425 at NTNU Dragvoll.
 
 
-## Defining a path
+## Specifying a path
 
 To start MazeMap with a predefined path:
 
@@ -123,7 +123,7 @@ http://use.mazemap.com/?campusid=1&starttype=point&start=10.4029047,63.4186015,0
 * `dest` In the example the POI ID for MazeMap office is used as destination.
 
 
-## Defining custom names for points
+## Specifying custom names for points
 
 When starting MazeMap either with predefined points (e.g. if you have defined a path), you can input a custom string for the names of these points. I.e. if you you are linking to an office with id 404, you can specify that it should display as "John's Office".
 
@@ -141,7 +141,7 @@ http://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809
 ```
 
 
-## Defining a custom zoom
+## Specifying a custom zoom
 
 To override the default zoom:
 
@@ -152,7 +152,7 @@ http://use.mazemap.com/?campusid=1&zoom=17
 * `zoom` can have a value between 1-22
 
 
-## Defining a custom view
+## Specifying a custom view
 
 To override the default center point of the view, use the `viewtype` and `view` parameters. The syntax was discussed in general under 'POIs in general'. The value of `viewtype` defines the format expected by the `view` parameter.
 
@@ -237,7 +237,7 @@ http://use.mazemap.com/?campusid=1&lang=nb
   * `nb` Norsk Bokmål
 
 
-## Defining a search string
+## Specifying a search string
 
 To start MazeMap with a predefined search string:
 
@@ -248,7 +248,7 @@ http://use.mazemap.com/?campusid=1&search=Your%20string
 * `search` defines the string. It must be [URL encoded](https://en.wikipedia.org/wiki/Percent-encoding). In this example, `%20` is used for the space character.
 
 
-## Defining a custom floor level
+## Specifying a custom floor level
 
 To override the default floor level:
 
