@@ -11,7 +11,7 @@ http://use.mazemap.com/?v=1
 
 * `v` defines the version, in this case `1`.
 
-The URL API supports versioning using the `v` parameter, however it is not necessary to specify as the API assumes the latest version by default. In the following examples we omit this parameter.
+The URL API supports versioning using the `v` parameter, however it is _**not necessary**_ to specify as the API assumes the latest version by default. In the following examples we omit this parameter.
 
 
 ## Specifying a campus
@@ -37,10 +37,10 @@ To specify other parameters you must also specify the campus to provide proper c
 A full list of campus IDs migth be available in the future.
 
 #### Omitting `campusid`
-As of 2015-06-18, if you specify a POI that is _**globally**_ unique, the `campusid` parameter can be omitted. Note however that POIs defined using `identifier` are not globally unique, and therefore needs either the `campusid` or `campuses` parameter for proper context. One of these must be provided.
+As of 2015-06-18, if you specify a POI that is _**globally unique**_, the `campusid` parameter can be omitted. Note however that POIs defined using `identifier` are not globally unique, and therefore needs either the `campusid` or `campuses` parameter for proper context. One of these must be provided.
 
 
-## Limiting the list of locations
+## Limiting the list of campuses
 
 For some institutions, it is possible to only show the institution's campuses in the 'Choose location' list that is shown when the view is zoomed out enough.
 
@@ -60,6 +60,7 @@ http://use.mazemap.com/?campuses=ntnu&zoom=12
 
 ## Specifying a POI (Point of Interest)
 
+<a name="pois-in-general"></a>
 #### POIs in general
 
 There are 3 different types of POIs:
@@ -121,7 +122,7 @@ http://use.mazemap.com/?campusid=18&desttype=identifier&dest=810-2425
 ```
 
 * `desttype` defines the format expected by the `dest` parameter. In this case an identifier.
-* `dest` defines the customer defined ID of the POI. In this case room 8102425 at NTNU Dragvoll.
+* `dest` defines the customer defined ID of the POI. In this case room 810-2425 at NTNU Dragvoll.
 
 
 ## Specifying a path
@@ -169,7 +170,7 @@ http://use.mazemap.com/?campusid=1&zoom=17
 
 ## Specifying a custom view
 
-To override the default center point of the view, use the `viewtype` and `view` parameters. The syntax was discussed in general under 'POIs in general'. The value of `viewtype` defines the format expected by the `view` parameter.
+To override the default center point of the view, use the `viewtype` and `view` parameters. These parameters follow the same syntax as the POIs discussed under [POIs in general](#pois-in-general):
 
 ```
 viewtype=poi&view=<MazeMap POI ID>
@@ -177,7 +178,7 @@ viewtype=point&view=<longitude>,<latitude>,<floor>
 viewtype=identifier&view=<Customer defined ID>
 ```
 
-To center the starting point of the path defined above (instead of centering the path which is default):
+To center the starting point of a path (instead of centering the path, which is default):
 
 ```
 http://use.mazemap.com/?campusid=1&viewtype=point&view=10.40290,63.41860,0&starttype=point&start=10.40290,63.41860,0&desttype=identifier&dest=322-620
@@ -189,7 +190,7 @@ http://use.mazemap.com/?campusid=1&viewtype=point&view=10.40290,63.41860,0&start
 
 ## Simulating a position
 
-To simulate the position of the user, use the `postype` and `pos` parameters. The syntax was discussed in general under 'POIs in general'. The value of `postype` defines the format expected by the `pos` parameter.
+To simulate the position of the user, use the `postype` and `pos` parameters. These parameters follow the same syntax as the POIs discussed under [POIs in general](#pois-in-general):
 
 ```
 postype=poi&pos=<MazeMap POI ID>
@@ -204,7 +205,7 @@ http://use.mazemap.com/?campusid=1&postype=point&pos=10.40213,63.41879,0
 * `postype` defines the format expected by the `pos` parameter. In this case, a `point`.
 * `pos` defines the geographical point in a comma-separated list.
 
-#### Warning!
+#### Should I simulate a position?
 
 If not used in the correct way, simulating positions can easily confuse the user. Be careful using it for other purposes than stationary info screens.
 
@@ -265,3 +266,40 @@ http://use.mazemap.com/?campusid=1&zlevel=5
 ```
 
 * `zlevel` defines which floor the view is set to. This might be different from building to building, i.e. `zlevel=2` might not always mean the 2nd floor.
+
+
+## Disabling 'Scroll to zoom' functionality
+
+```
+http://use.mazemap.com/?wheelzoom=false
+```
+
+* `wheelzoom` can have the following values:
+  * `true` (default)
+  * `false`
+
+
+## List of all parameters
+
+* `v` specifies a specific version number.
+* `campusid` specifies the campus ID.
+* `campuses` limits the list of campuses.
+* `sharepoitype` specifies what format `sharepoi` should expect.
+* `sharepoi` specifies a POI either by poi, identifier or point.
+* `sharepoiname` specifies a custom name for the shared point.
+* `starttype` specifies what format `start` should expect.
+* `start` specifies a POI either by poi, identifier or point.
+* `startname` specifies a custom name for the start point.
+* `desttype` specifies what format `dest` should expect.
+* `dest` specifies a POI either by poi, identifier or point.
+* `destname` specifies a custom name for the destination.
+* `zoom` specifies a custom zoom level (1-22).
+* `viewtype` specifies what format `view` should expect.
+* `view` specifies the view center either by poi, identifier or point.
+* `postype` specifies what format `pos` should expect.
+* `pos` specifies a simulated position either by poi, identifier or point.
+* `typepois` specifies a comma-separated list with IDs of generic POIs (WC, Bus stops, etc.)
+* `lang` overrides user's language settings.
+* `search` start application with a predefined search string.
+* `zlevel` override default floor level.
+* `wheelzoom` specifies whether zooming by scrolling is enabled
