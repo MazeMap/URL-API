@@ -73,7 +73,7 @@ window.mazemap_share_urlscheme_string_tmpl =
                NSString *query = url.query; //mazemapshareprops=%7B%22longUrl%22%3A%22...
 
                //Make a dictionary with the parameters found in the query string
-               NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+               NSMutableDictionary *params = [NSMutableDictionary dictionary];
                for (NSString *param in [query componentsSeparatedByString:@"&"]) {
                    NSArray *elts = [param componentsSeparatedByString:@"="];
                    if([elts count] < 2) continue;
