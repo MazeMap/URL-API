@@ -2,6 +2,7 @@
 
 This document describes the basic use of the MazeMap URL API.
 
+<br>
 
 ## Specifying a specific URL API version
 
@@ -13,6 +14,9 @@ http://use.mazemap.com/?v=1
 
 The URL API supports versioning using the `v` parameter, however it is _**not necessary**_ to specify as the API assumes the latest version by default. In the following examples we omit this parameter.
 
+<br>
+---
+<br>
 
 ## Specifying a campus
 
@@ -39,6 +43,9 @@ A full list of campus IDs migth be available in the future.
 #### Omitting `campusid`
 As of 2015-06-18, if you specify a POI that is _**globally unique**_, the `campusid` parameter can be omitted. Note however that POIs defined using `identifier` are not globally unique, and therefore needs either the `campusid` or `campuses` parameter for proper context. One of these must be provided.
 
+<br>
+---
+<br>
 
 ## Limiting the list of campuses
 
@@ -57,6 +64,9 @@ http://use.mazemap.com/?campuses=ntnu&zoom=12
 * `uit` University of Tromsø
 * `uib` University of Bergen
 
+<br>
+---
+<br>
 
 ## Specifying a POI (Point of Interest)
 
@@ -124,6 +134,9 @@ http://use.mazemap.com/?campusid=18&desttype=identifier&dest=810-2425
 * `desttype` defines the format expected by the `dest` parameter. In this case an identifier.
 * `dest` defines the customer defined ID of the POI. In this case room 810-2425 at NTNU Dragvoll.
 
+<br>
+---
+<br>
 
 ## Specifying a path
 
@@ -138,6 +151,9 @@ http://use.mazemap.com/?campusid=1&starttype=point&start=10.4029047,63.4186015,0
 * `desttype` In the example, a POI is used as destination type.
 * `dest` In the example the POI ID for MazeMap office is used as destination.
 
+<br>
+---
+<br>
 
 ## Specifying custom names for points
 
@@ -156,6 +172,9 @@ If you defined a `sharepoi`, use `sharepoiname` to customize the name.
 http://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809,1&sharepoiname=Vending Machine X
 ```
 
+<br>
+---
+<br>
 
 ## Specifying a custom zoom
 
@@ -167,6 +186,9 @@ http://use.mazemap.com/?campusid=1&zoom=17
 
 * `zoom` defines a specific zoom value. It can have a value between 1-22.
 
+<br>
+---
+<br>
 
 ## Specifying a custom view
 
@@ -187,6 +209,9 @@ http://use.mazemap.com/?campusid=1&viewtype=point&view=10.40290,63.41860,0&start
 * `viewtype` defines the format expected by the `view` parameter. In this case, a `point`.
 * `view` is set to be the same point as `start`
 
+<br>
+---
+<br>
 
 ## Simulating a position
 
@@ -209,6 +234,9 @@ http://use.mazemap.com/?campusid=1&postype=point&pos=10.40213,63.41879,0
 
 If not used in the correct way, simulating positions can easily confuse the user. Be careful using it for other purposes than stationary info screens.
 
+<br>
+---
+<br>
 
 ## Adding type POIs
 
@@ -232,6 +260,9 @@ http://use.mazemap.com/?campusid=1&typepois=9,27
 
 A full list of type POI IDs migth be available in the future.
 
+<br>
+---
+<br>
 
 ## Forcing a language
 
@@ -245,6 +276,9 @@ http://use.mazemap.com/?campusid=1&lang=nb
   * `en` English
   * `nb` Norsk Bokmål
 
+<br>
+---
+<br>
 
 ## Specifying a search string
 
@@ -256,6 +290,9 @@ http://use.mazemap.com/?campusid=1&search=Your string
 
 * `search` defines the string.
 
+<br>
+---
+<br>
 
 ## Specifying a custom floor level
 
@@ -267,6 +304,9 @@ http://use.mazemap.com/?campusid=1&zlevel=5
 
 * `zlevel` defines which floor the view is set to. This might be different from building to building, i.e. `zlevel=2` might not always mean the 2nd floor.
 
+<br>
+---
+<br>
 
 ## Disabling 'Scroll to zoom' functionality
 
@@ -278,8 +318,33 @@ http://use.mazemap.com/?wheelzoom=false
   * `true` (default)
   * `false`
 
+<br>
+---
+<br>
 
-## List of all parameters
+## Modifying 'share map' header button behaviour
+
+#### Disabling 'share map' functionality
+Will hide the share button from the header
+```
+http://use.mazemap.com/?sharemode=false
+```
+
+
+#### Enable URL Scheme functionality
+For integration with native apps
+```
+http://use.mazemap.com/?sharemode=url_scheme
+```
+
+See the spesific document that describes this functionality with example iOS / Android code
+[Native URL Scheme Implementation Documentation](https://github.com/MazeMap/URL-API/blob/master/UrlSchemeSharing.md)
+<br>
+---
+<br>
+
+
+# List of all parameters
 
 * `v` specifies a specific version number.
 * `campusid` specifies the campus ID.
@@ -303,3 +368,4 @@ http://use.mazemap.com/?wheelzoom=false
 * `search` start application with a predefined search string.
 * `zlevel` override default floor level.
 * `wheelzoom` specifies whether zooming by scrolling is enabled
+* `sharemode` specifies the behaviour of the share map button in the app header
