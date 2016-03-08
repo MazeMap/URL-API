@@ -1,7 +1,6 @@
 
-# URL Scheme sharing
+# URL Scheme sharing **(BETA)**
 This document describes the specific `sharemode=url_scheme` functionality of the MazeMap app.
-**DRAFT ONLY**
 
 ###Short intro
 When integrating the MazeMap webapp in native mobile applications, you might want to trigger the native OS's share-dialog, instead of the default share dialog in the MazeMap webapp.
@@ -34,7 +33,7 @@ window.mazemap_share_urlscheme_string_tmpl =
 
 **Java example (Android)**
 ```
-//TODO: Insert here
+webview.executeJavascript("window.mazemap_share_urlscheme_string_tmpl='customappscheme://sharemap/?mazemapshareprops={{mazemapshareprops}}';");
 ```
 <br>
  The `{{mazemapshareprops}}` works similar to a [Handlebars](http://handlebarsjs.com/) expression and will be automatically replaced by a URLEncoded JSON stringified object, which you can decode and parse as JSON. When you do this, the resulting object will look like:
@@ -122,7 +121,70 @@ window.mazemap_share_urlscheme_string_tmpl =
 ```
 **Java example (Android)**
 ```
-//TODO: Insert here
+    this.setWebViewClient(new WebViewClient() {
+
+      @Override
+      public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        if (url.startsWith("customappscheme://sharemap/")) {
+          // this is the share handler, override
+
+          URI urlObject = null;
+          try {
+            urlObject = new URI(url);
+          } catch (URISyntaxException e) {
+            e.printStackTrace();
+          }
+          String query = urlObject.getRawQuery();
+
+          // parse out json and open native share handler
+          String[] stringArray = query.split("&");
+          HashMap<String, String> params = new HashMap<String, String>();
+          for (String args : stringArray) {
+            String[] options = args.split("=");
+            if (options.length == 2) {
+              params.put(options[0], options[1]);
+            }
+          }
+          //String mmSharePropsEncoded = params.get("mazemapshareprops");
+
+          String mmSharePropsEncoded = params.get("mazemapshareprops");
+          String mmSharePropsDecoded = "";
+          try {
+            mmSharePropsDecoded = URLDecoder.decode(mmSharePropsEncoded, "utf8");
+          } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+          }
+
+          JSONObject jsonObject = new JSONObject();
+          try {
+            jsonObject = new JSONObject(mmSharePropsDecoded);
+          } catch (JSONException e) {
+            e.printStackTrace();
+          }
+          String shareUrl = null;
+          if (jsonObject.has("shortUrl")) {
+            try {
+              shareUrl = jsonObject.getString("shortUrl");
+            } catch (JSONException e) {
+              e.printStackTrace();
+            }
+          } else if (jsonObject.has("longUrl")) {
+            try {
+              shareUrl = jsonObject.getString("longUrl");
+            } catch (JSONException e) {
+              e.printStackTrace();
+            }
+          }
+          if (shareUrl != null){
+            // native share code here
+          }
+          // retrun true so the webview assumes this url handled
+          return true;
+        }
+        // normal web page, do not override
+        return false;
+      }
+    });
 ```
 
 <br>
