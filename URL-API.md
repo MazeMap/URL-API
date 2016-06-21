@@ -369,3 +369,4 @@ See the spesific document that describes this functionality with example iOS / A
 * `zlevel` override default floor level.
 * `wheelzoom` specifies whether zooming by scrolling is enabled
 * `sharemode` specifies the behaviour of the share map button in the app header
+* `positioning` if set to 'disabled', allows for disabling the "find my location" functionality
