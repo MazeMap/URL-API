@@ -123,16 +123,35 @@ http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035833,63.4178412,3
 * `desttype` defines the format expected by the `dest` parameter. In this case a generic point.
 * `dest` defines the geographical point as a comma-separated list `dest=longitude,latitude,z-index` where `z-index` is used to specify the floor, if the point lies indoors. The value of `z-index` _usually_ matches the floor, but this might vary from building to building. If outdoors, the `z-index` parameter should be 0, or it can simply be dropped.
 
-#### Specifying a destination by a customer defined ID
+#### Specifying a destination by a customer specific reference ID
 
-To start MazeMap with a customer defined point in view:
+Every POI/room has an internal reference identifier. To link to a specific POI identifier, in view:
 
 ```
 http://use.mazemap.com/?campusid=18&desttype=identifier&dest=810-2425
 ```
 
 * `desttype` defines the format expected by the `dest` parameter. In this case an identifier.
-* `dest` defines the customer defined ID of the POI. In this case room 810-2425 at NTNU Dragvoll.
+* `dest` defines the lokal reference ID of the POI. In this case room 810-2425 at NTNU Dragvoll.
+
+#### Facility management reference ID's, from Lydia, Tririga, etc
+Some organizations have IDs to buildings/floors from an internal system, such as Lydia or IBM Tririga, etc. Such IDs could be synchronized with MazeMap and used in links in the following way:
+
+* A specific "referenceprovider" must be created in MazeMap
+* The reference ID is then used to identify the specific resource
+
+Example link to a *building* with a Lydia reference ID set up for NTNU customer:
+* The building reference id is `301`
+```
+http://use.mazemap.com/?campuses=ntnu&campusid=1&referenceprovider=ntnulydia&sharepoitype=building&sharepoi=301
+```
+
+Example link to a *floor* with a Lydia reference ID set up for NTNU customer:
+The building reference id is `301` and the floor id is `k`, resulting in the reference `301k`
+```
+http://use.mazemap.com/?campuses=ntnu&campusid=1&referenceprovider=ntnulydia&sharepoitype=floor&sharepoi=301k
+```
+
 
 <br>
 ---
