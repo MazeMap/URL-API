@@ -7,7 +7,7 @@ This document describes the basic use of the MazeMap URL API.
 ## Specifying a specific URL API version
 
 ```
-http://use.mazemap.com/?v=1
+https://use.mazemap.com/?v=1
 ```
 
 * `v` defines the version, in this case `1`.
@@ -23,7 +23,7 @@ The URL API supports versioning using the `v` parameter, however it is _**not ne
 To start MazeMap with a specific campus in view:
 
 ```
-http://use.mazemap.com/?campusid=1
+https://use.mazemap.com/?campusid=1
 ```
 
 * `campusid` defines the campus in view, in this case `1`.
@@ -52,7 +52,7 @@ As of 2015-06-18, if you specify a POI that is _**globally unique**_, the `campu
 For some institutions, it is possible to only show the institution's campuses in the 'Choose location' list that is shown when the view is zoomed out enough.
 
 ```
-http://use.mazemap.com/?campuses=ntnu&zoom=12
+https://use.mazemap.com/?campuses=ntnu&zoom=12
 ```
 
 * `campuses` defines which group of campuses to show in the list.
@@ -105,7 +105,7 @@ The syntax is as follows:
 To start MazeMap with a specific POI in view:
 
 ```
-http://use.mazemap.com/?campusid=1&desttype=poi&dest=593
+https://use.mazemap.com/?campusid=1&desttype=poi&dest=593
 ```
 
 * `desttype` defines the format expected by the `dest` parameter. In this case a POI ID.
@@ -116,8 +116,8 @@ http://use.mazemap.com/?campusid=1&desttype=poi&dest=593
 To start MazeMap with a generic point in view:
 
 ```
-http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4026794,63.4183615,0
-http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035833,63.4178412,3
+https://use.mazemap.com/?campusid=1&desttype=point&dest=10.4026794,63.4183615,0
+https://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035833,63.4178412,3
 ```
 
 * `desttype` defines the format expected by the `dest` parameter. In this case a generic point.
@@ -128,7 +128,7 @@ http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035833,63.4178412,3
 Every POI/room has an internal reference identifier. To link to a specific POI identifier, in view:
 
 ```
-http://use.mazemap.com/?campusid=18&desttype=identifier&dest=810-2425
+https://use.mazemap.com/?campusid=18&desttype=identifier&dest=810-2425
 ```
 
 * `desttype` defines the format expected by the `dest` parameter. In this case an identifier.
@@ -143,13 +143,13 @@ Some organizations have IDs to buildings/floors from an internal system, such as
 Example link to a *building* with a Lydia reference ID set up for NTNU customer:
 * The building reference id is `301`
 ```
-http://use.mazemap.com/?campuses=ntnu&campusid=1&referenceprovider=ntnulydia&sharepoitype=building&sharepoi=301
+https://use.mazemap.com/?campuses=ntnu&campusid=1&referenceprovider=ntnulydia&sharepoitype=building&sharepoi=301
 ```
 
 Example link to a *floor* with a Lydia reference ID set up for NTNU customer:
 The building reference id is `301` and the floor id is `k`, resulting in the reference `301k`
 ```
-http://use.mazemap.com/?campuses=ntnu&campusid=1&referenceprovider=ntnulydia&sharepoitype=floor&sharepoi=301k
+https://use.mazemap.com/?campuses=ntnu&campusid=1&referenceprovider=ntnulydia&sharepoitype=floor&sharepoi=301k
 ```
 
 
@@ -162,7 +162,7 @@ http://use.mazemap.com/?campuses=ntnu&campusid=1&referenceprovider=ntnulydia&sha
 To start MazeMap with a predefined path:
 
 ```
-http://use.mazemap.com/?campusid=1&starttype=point&start=10.4029047,63.4186015,0&desttype=poi&dest=35994
+https://use.mazemap.com/?campusid=1&starttype=point&start=10.4029047,63.4186015,0&desttype=poi&dest=35994
 ```
 
 * `starttype` defines the format expected by the `start` parameter. In this case a geographical point outside.
@@ -179,7 +179,7 @@ http://use.mazemap.com/?campusid=1&starttype=point&start=10.4029047,63.4186015,0
 When starting MazeMap either with predefined points (e.g. if you have defined a path), you can input a custom string for the names of these points. I.e. if you you are linking to an office with id 404, you can specify that it should display as "John's Office".
 
 ```
-http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035968,63.4175039,6&starttype=point&start=10.4030281,63.4185463,0&startname=Start Here&destname=John's Office
+https://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035968,63.4175039,6&starttype=point&start=10.4030281,63.4185463,0&startname=Start Here&destname=John's Office
 ```
 
 * `startname` defines the string to be used for the start point.
@@ -188,7 +188,7 @@ http://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035968,63.4175039,6&s
 If you defined a `sharepoi`, use `sharepoiname` to customize the name.
 
 ```
-http://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809,1&sharepoiname=Vending Machine X
+https://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809,1&sharepoiname=Vending Machine X
 ```
 
 <br>
@@ -200,7 +200,7 @@ http://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809
 To override the default zoom:
 
 ```
-http://use.mazemap.com/?campusid=1&zoom=17
+https://use.mazemap.com/?campusid=1&zoom=17
 ```
 
 * `zoom` defines a specific zoom value. It can have a value between 1-22.
@@ -222,7 +222,7 @@ viewtype=identifier&view=<Customer defined ID>
 To center the starting point of a path (instead of centering the path, which is default):
 
 ```
-http://use.mazemap.com/?campusid=1&viewtype=point&view=10.40290,63.41860,0&starttype=point&start=10.40290,63.41860,0&desttype=identifier&dest=322-620
+https://use.mazemap.com/?campusid=1&viewtype=point&view=10.40290,63.41860,0&starttype=point&start=10.40290,63.41860,0&desttype=identifier&dest=322-620
 ```
 
 * `viewtype` defines the format expected by the `view` parameter. In this case, a `point`.
@@ -243,7 +243,7 @@ postype=identifier&pos=<Customer defined ID>
 ```
 
 ```
-http://use.mazemap.com/?campusid=1&postype=point&pos=10.40213,63.41879,0
+https://use.mazemap.com/?campusid=1&postype=point&pos=10.40213,63.41879,0
 ```
 
 * `postype` defines the format expected by the `pos` parameter. In this case, a `point`.
@@ -262,7 +262,7 @@ If not used in the correct way, simulating positions can easily confuse the user
 Type POIs are generic types of POIs.
 
 ```
-http://use.mazemap.com/?campusid=1&typepois=9,27
+https://use.mazemap.com/?campusid=1&typepois=9,27
 ```
 
 * `typepois` specifies a comma-separated list with IDs.
@@ -288,7 +288,7 @@ A full list of type POI IDs migth be available in the future.
 To override the user's language settings:
 
 ```
-http://use.mazemap.com/?campusid=1&lang=nb
+https://use.mazemap.com/?campusid=1&lang=nb
 ```
 
 * `lang` defines which language to use.
@@ -304,7 +304,7 @@ http://use.mazemap.com/?campusid=1&lang=nb
 To start MazeMap with a predefined search string:
 
 ```
-http://use.mazemap.com/?campusid=1&search=Your string
+https://use.mazemap.com/?campusid=1&search=Your string
 ```
 
 * `search` defines the string.
@@ -318,7 +318,7 @@ http://use.mazemap.com/?campusid=1&search=Your string
 To override the default floor level:
 
 ```
-http://use.mazemap.com/?campusid=1&zlevel=5
+https://use.mazemap.com/?campusid=1&zlevel=5
 ```
 
 * `zlevel` defines which floor the view is set to. This might be different from building to building, i.e. `zlevel=2` might not always mean the 2nd floor.
@@ -330,7 +330,7 @@ http://use.mazemap.com/?campusid=1&zlevel=5
 ## Disabling 'Scroll to zoom' functionality
 
 ```
-http://use.mazemap.com/?wheelzoom=false
+https://use.mazemap.com/?wheelzoom=false
 ```
 
 * `wheelzoom` can have the following values:
@@ -346,14 +346,14 @@ http://use.mazemap.com/?wheelzoom=false
 #### Disabling 'share map' functionality
 Will hide the share button from the header
 ```
-http://use.mazemap.com/?sharemode=false
+https://use.mazemap.com/?sharemode=false
 ```
 
 
 #### Enable URL Scheme functionality
 For integration with native apps
 ```
-http://use.mazemap.com/?sharemode=url_scheme
+https://use.mazemap.com/?sharemode=url_scheme
 ```
 
 See the spesific document that describes this functionality with example iOS / Android code
