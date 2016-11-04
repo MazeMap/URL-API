@@ -157,6 +157,21 @@ https://use.mazemap.com/?campuses=ntnu&campusid=1&referenceprovider=ntnulydia&sh
 ---
 <br>
 
+## Specifying a building by MazeMap internal building ID's
+
+To start MazeMap with a predefined building in view:
+
+```
+https://use.mazemap.com/?v=1&sharepoitype=bld&sharepoi=57&campuses=ntnu
+```
+
+* `sharepoitype` defines the format expected by the `sharepoi` parameter. In this case we specify a 'bld' type
+* `sharepoi` defines the ID of the building. This is an internal MazeMap ID, and might not be persistent forever.
+
+<br>
+---
+<br>
+
 ## Specifying a path
 
 To start MazeMap with a predefined path:
