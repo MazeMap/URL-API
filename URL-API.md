@@ -224,57 +224,26 @@ https://use.mazemap.com/?campusid=1&zoom=17
 ---
 <br>
 
-## Specifying a custom view
 
-To override the default center point of the view, use the `viewtype` and `view` parameters. These parameters follow the same syntax as the POIs discussed under [POIs in general](#pois-in-general):
 
-```
-viewtype=poi&view=<MazeMap POI ID>
-viewtype=point&view=<longitude>,<latitude>,<floor>
-viewtype=identifier&view=<Customer defined ID>
-```
+## Specifying a custom bearing/rotation
 
-To center the starting point of a path (instead of centering the path, which is default):
+To override the default north rotated map:
 
 ```
-https://use.mazemap.com/?campusid=1&viewtype=point&view=10.40290,63.41860,0&starttype=point&start=10.40290,63.41860,0&desttype=identifier&dest=322-620
+https://use.mazemap.com/?campusid=1&zoom=17&bearing=45
 ```
 
-* `viewtype` defines the format expected by the `view` parameter. In this case, a `point`.
-* `view` is set to be the same point as `start`
+* `bearing` defines a specific rotation value in degrees from north.
 
 <br>
 ---
 <br>
 
-## Simulating a position
 
-To simulate the position of the user, use the `postype` and `pos` parameters. These parameters follow the same syntax as the POIs discussed under [POIs in general](#pois-in-general):
+## Adding POI Categories
 
-```
-postype=poi&pos=<MazeMap POI ID>
-postype=point&pos=<longitude>,<latitude>,<floor>
-postype=identifier&pos=<Customer defined ID>
-```
-
-```
-https://use.mazemap.com/?campusid=1&postype=point&pos=10.40213,63.41879,0
-```
-
-* `postype` defines the format expected by the `pos` parameter. In this case, a `point`.
-* `pos` defines the geographical point in a comma-separated list.
-
-#### Should I simulate a position?
-
-If not used in the correct way, simulating positions can easily confuse the user. Be careful using it for other purposes than stationary info screens.
-
-<br>
----
-<br>
-
-## Adding type POIs
-
-Type POIs are generic types of POIs.
+POI categories are generic types of POIs.
 
 ```
 https://use.mazemap.com/?campusid=1&typepois=9,27
@@ -292,7 +261,7 @@ https://use.mazemap.com/?campusid=1&typepois=9,27
 * `28` Parking
 * `114` Power outlets
 
-A full list of type POI IDs migth be available in the future.
+POI type category IDs are configured per-campus. Contact MazeMap for a list of your category IDs, or instructions on how to set-up these yourself.
 
 <br>
 ---
@@ -380,23 +349,16 @@ See the spesific document that describes this functionality with example iOS / A
 
 # List of all parameters
 
-* `v` specifies a specific version number.
+* `v` specifies the url version number.
 * `campusid` specifies the campus ID.
-* `campuses` limits the list of campuses.
+* `campuses` limits the list of campuses with a pre-configured tag string.
 * `sharepoitype` specifies what format `sharepoi` should expect.
 * `sharepoi` specifies a POI either by poi, identifier or point.
-* `sharepoiname` specifies a custom name for the shared point.
 * `starttype` specifies what format `start` should expect.
 * `start` specifies a POI either by poi, identifier or point.
-* `startname` specifies a custom name for the start point.
 * `desttype` specifies what format `dest` should expect.
 * `dest` specifies a POI either by poi, identifier or point.
-* `destname` specifies a custom name for the destination.
 * `zoom` specifies a custom zoom level (1-22).
-* `viewtype` specifies what format `view` should expect.
-* `view` specifies the view center either by poi, identifier or point.
-* `postype` specifies what format `pos` should expect.
-* `pos` specifies a simulated position either by poi, identifier or point.
 * `typepois` specifies a comma-separated list with IDs of generic POIs (WC, Bus stops, etc.)
 * `lang` overrides user's language settings.
 * `search` start application with a predefined search string.
