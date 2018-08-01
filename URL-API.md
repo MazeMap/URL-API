@@ -29,16 +29,7 @@ https://use.mazemap.com/?campusid=1
 * `campusid` defines the campus in view, in this case `1`.
 
 To specify other parameters you must also specify the campus to provide proper context.
-
-#### Examples of `campusid` values
-
-* `1` NTNU Gløshaugen
-* `3` St. Olavs Hospital
-* `4` OSL
-* `5` UiT
-* `0` Special value that tells the application to start with no particular campus by default.
-
-A full list of campus IDs migth be available in the future.
+Note: `0` is a special value that tells the application to start with no particular campus by default.
 
 #### Omitting `campusid`
 As of 2015-06-18, if you specify a POI that is _**globally unique**_, the `campusid` parameter can be omitted. Note however that POIs defined using `identifier` are not globally unique, and therefore needs either the `campusid` or `campuses` parameter for proper context. One of these must be provided.
@@ -47,22 +38,15 @@ As of 2015-06-18, if you specify a POI that is _**globally unique**_, the `campu
 ---
 <br>
 
-## Limiting the list of campuses
+## Specifying a limited campus context
 
-For some institutions, it is possible to only show the institution's campuses in the 'Choose location' list that is shown when the view is zoomed out enough.
+For some use-cases, you want to launch the app with only a specifc campus available fro browsing. This is done with the `campuses` parameter. This is a pre-configured tag that must be configured by the MazeMap team. Contact MazeMap to do this.
 
 ```
-https://use.mazemap.com/?campuses=ntnu&zoom=12
+https://use.mazemap.com/?campuses=ntnu
 ```
 
-* `campuses` defines which group of campuses to show in the list.
-* `zoom` defines a specific zoom value. It is explained in detail later.
-
-#### Examples of `campuses` values
-
-* `ntnu` NTNU
-* `uit` University of Tromsø
-* `uib` University of Bergen
+* `campuses` defines which group of campuses to show in the list using the configured tag string.
 
 <br>
 ---
@@ -189,26 +173,6 @@ https://use.mazemap.com/?campusid=1&starttype=point&start=10.4029047,63.4186015,
 ---
 <br>
 
-## Specifying custom names for points
-
-When starting MazeMap either with predefined points (e.g. if you have defined a path), you can input a custom string for the names of these points. I.e. if you you are linking to an office with id 404, you can specify that it should display as "John's Office".
-
-```
-https://use.mazemap.com/?campusid=1&desttype=point&dest=10.4035968,63.4175039,6&starttype=point&start=10.4030281,63.4185463,0&startname=Start Here&destname=John's Office
-```
-
-* `startname` defines the string to be used for the start point.
-* `destname` defines the string to be used for the destination point.
-
-If you defined a `sharepoi`, use `sharepoiname` to customize the name.
-
-```
-https://use.mazemap.com/?campusid=1&sharepoitype=point&sharepoi=10.40153,63.41809,1&sharepoiname=Vending Machine X
-```
-
-<br>
----
-<br>
 
 ## Specifying a custom zoom
 
