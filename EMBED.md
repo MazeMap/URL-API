@@ -1,4 +1,9 @@
-# Embedding MazeMap using iframes
+# [DEPRECATED / OUTDATED] 
+Please refer to MazeMap Customer Success or Sales channels for newer documentation.
+[MazeMap Contact Page](https://www.mazemap.com/contact)
+---
+
+## Embedding MazeMap using iframes
 
 This document describes how to embed MazeMap on your website using iframes.
 
