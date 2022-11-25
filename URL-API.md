@@ -1,3 +1,9 @@
+# [DEPRECATED / OUTDATED] 
+Please refer to MazeMap Customer Success or Sales channels for newer documentation.
+[MazeMap Contact Page](https://www.mazemap.com/contact)
+
+---
+
 # MazeMap URL API
 
 This document describes the basic use of the MazeMap URL API.
